@@ -47,41 +47,41 @@
             {% csrf_token %}
             <div class="input-flex mt-5">
               <div>
-                <input
+                {{ form.firstname }}
+                <!-- <input
                   type="text"
                   placeholder="First Name"
                   class="input"
-                  name=""
-                  value="{{ form.firstname }}"
-                />
+                  name="firstname" 
+                /> -->
                 <hr />
               </div>
               <div>
-                <input
+                {{ form.lastname }}
+                <!-- <input
                   type="text"
                   placeholder="Last Name"
                   class="input"
-                  name=""
-                  value="{{ form.lastname }}"
-                />
+                  name="lastname"
+                /> -->
                 <hr m-0 />
               </div>
             </div>
-            <input
+
+            {{ form.lastname }}
+            <!-- <input
               type="email"
               placeholder="Email Address"
               class="input"
-              name=""
-              value="{{ form.email }}"
-            />
+              name="email"
+            /> -->
             <br />
             <hr />
             <input
               type="text"
               placeholder="Username"
               class="input"
-              name=""
-              value="{{ form.username }}"
+              name="username"
             />
             <br />
             <hr />
@@ -90,8 +90,7 @@
                 type="password"
                 placeholder="Password"
                 class="input"
-                name=""
-                value="{{ form.password }}"
+                name="password"
               />
               <i class="bi bi-eye"></i>
             </div>
