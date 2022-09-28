@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,24 +19,24 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css"
     />
-    <link rel="stylesheet" href="css/signup.css" />
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}" />
     <title>Blog signup</title>
   </head>
   <body class="card">
     <header>
       <div class="logo">
-        <img src="img/Blogga.png" alt="" />
+        <img src="{% static 'img/Blogga.png' %}" alt="" />
       </div>
     </header>
     <main>
       <div class="left-div">
-        <img src="img/SignUpNo BG.png" width="" alt="" />
+        <img src="{% static 'img/SignUpNo BG.png' %}" width="" alt="" />
       </div>
 
       <div class="right-div">
         <div class="light-waves">
-          <img src="./img/Vector-left.png" alt="" class="wave1" />
-          <img src="./img/Vector-right.png" alt="" class="wave2" />
+          <img src="{% static 'img/Vector-left.png' %}" alt="" class="wave1" />
+          <img src="{% static 'img/Vector-right.png' %}" alt="" class="wave2" />
         </div>
         <span class="close">&times;</span>
         <div>
@@ -80,18 +81,18 @@
           </div>
 
           <button type="button" class="continue-button my-3">
-            <img src="img/google.png" alt="" class="google" /> Continue With
-            Google
+            <img src="{% static 'img/google.png' %}" alt="" class="google" />
+            Continue With Google
           </button>
           <h6 class="my-4 end-para">
             Already a Blogga?
-            <a href="./login.html" class="login-link">Log in</a>
+            <a href="{% url 'login' %}" class="login-link">Log in</a>
           </h6>
         </div>
       </div>
     </main>
     <footer class="footer">
-      <img src="./img/Vector.png" alt="" />
+      <img src="{% static 'img/Vector.png' %}" alt="" />
     </footer>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
