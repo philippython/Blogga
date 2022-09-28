@@ -39,41 +39,76 @@
           <img src="{% static 'img/Vector-right.png' %}" alt="" class="wave2" />
         </div>
         <span class="close">&times;</span>
+
         <div>
           <h3 class="text-center mb-5">Welcome to Blogga</h3>
-          <div class="input-flex mt-5">
-            <div>
-              <input type="text" placeholder="First Name" class="input" />
-              <hr />
+
+          <form action="{% url 'signup' %}" method="post">
+            {% csrf_token %}
+            <div class="input-flex mt-5">
+              <div>
+                <input
+                  type="text"
+                  placeholder="First Name"
+                  class="input"
+                  name=""
+                  value="{{ form.firstname }}"
+                />
+                <hr />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="Last Name"
+                  class="input"
+                  name=""
+                  value="{{ form.lastname }}"
+                />
+                <hr m-0 />
+              </div>
             </div>
-            <div>
-              <input type="text" placeholder="Last Name" class="input" />
-              <hr m-0 />
+            <input
+              type="email"
+              placeholder="Email Address"
+              class="input"
+              name=""
+              value="{{ form.email }}"
+            />
+            <br />
+            <hr />
+            <input
+              type="text"
+              placeholder="Username"
+              class="input"
+              name=""
+              value="{{ form.username }}"
+            />
+            <br />
+            <hr />
+            <div class="password-eye">
+              <input
+                type="password"
+                placeholder="Password"
+                class="input"
+                name=""
+                value="{{ form.password }}"
+              />
+              <i class="bi bi-eye"></i>
             </div>
-          </div>
-          <input type="email" placeholder="Email Address" class="input" />
-          <br />
-          <hr />
-          <input type="text" placeholder="Username" class="input" />
-          <br />
-          <hr />
-          <div class="password-eye">
-            <input type="password" placeholder="Password" class="input" />
-            <i class="bi bi-eye"></i>
-          </div>
-          <hr class="hr-nomargin" />
-          <p class="input-rules"><small>Minimum of 8 characters</small></p>
-          <p class=""><small>special characters</small></p>
-          <input type="checkbox" name="" id="" class="checkbox" />
-          <small
-            >By signing up, you agree to our
-            <a href="" class="terms">T & Cs</a> and
-            <a href="" class="terms">Privacy Statement</a></small
-          >
-          <br />
-          <button type="button" class="my-3 mt-4 create-button">
-            Create Account
-          </button>
+            <hr class="hr-nomargin" />
+            <p class="input-rules"><small>Minimum of 8 characters</small></p>
+            <p class=""><small>special characters</small></p>
+            <input type="checkbox" name="" id="" class="checkbox" />
+            <small
+              >By signing up, you agree to our
+              <a href="" class="terms">T & Cs</a> and
+              <a href="" class="terms">Privacy Statement</a></small
+            >
+            <br />
+            <button type="submit" class="my-3 mt-4 create-button">
+              Create Account
+            </button>
+          </form>
           <div class="hr-or">
             <hr size="5" class="hr" />
             <h3 class="para-hr">OR</h3>
