@@ -46,35 +46,32 @@
           <form action="{% url 'signup' %}" method="post">
             {% csrf_token %}
             <div class="input-flex mt-5">
+              {% if form.errors %} {{ form.non_field_errors }} {% endif %}
               <div>
-                {{ form.firstname }}
-                <!-- <input
+                <input
                   type="text"
                   placeholder="First Name"
                   class="input"
-                  name="firstname" 
-                /> -->
+                  name="firstname"
+                />
                 <hr />
               </div>
               <div>
-                {{ form.lastname }}
-                <!-- <input
+                <input
                   type="text"
                   placeholder="Last Name"
                   class="input"
                   name="lastname"
-                /> -->
+                />
                 <hr m-0 />
               </div>
             </div>
-
-            {{ form.lastname }}
-            <!-- <input
+            <input
               type="email"
               placeholder="Email Address"
               class="input"
               name="email"
-            /> -->
+            />
             <br />
             <hr />
             <input
@@ -97,7 +94,7 @@
             <hr class="hr-nomargin" />
             <p class="input-rules"><small>Minimum of 8 characters</small></p>
             <p class=""><small>special characters</small></p>
-            <input type="checkbox" name="" id="" class="checkbox" />
+            <input type="checkbox" name="" id="" class="checkbox" required />
             <small
               >By signing up, you agree to our
               <a href="" class="terms">T & Cs</a> and
