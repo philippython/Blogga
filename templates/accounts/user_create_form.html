@@ -46,26 +46,31 @@
             {% csrf_token %} {{ form.non_field_errors }}
             <div class="input-flex mt-5">
               <div>
+                {{ form.first_name.errors}}
                 <p>{{ form.first_name.label }}</p>
                 {{ form.first_name }}
                 <hr />
               </div>
               <div>
+                {{ form.first_last.errors}}
                 <p>{{ form.last_name.label }}</p>
                 {{ form.last_name }}
                 <hr m-0 />
               </div>
             </div>
+            {{ form.email.errors}}
             <p>{{ form.email.label }}</p>
             {{ form.email }}
 
             <br />
             <hr />
+            {{ form.username.errors}}
             <p>{{ form.username.label }}</p>
             {{ form.username }}
             <br />
             <hr />
             <div>
+              {{ form.password.errors}}
               <p>{{ form.password.label }}</p>
               {{ form.password }}
               <i class="bi bi-eye"></i>
@@ -83,21 +88,20 @@
             <button type="submit" class="my-3 mt-4 create-button">
               Create Account
             </button>
+            <div class="hr-or">
+              <hr size="5" class="hr" />
+              <h3 class="para-hr">OR</h3>
+              <hr class="hr" />
+            </div>
+            <button type="button" class="continue-button my-3">
+              <img src="{% static 'img/google.png' %}" alt="" class="google" />
+              Continue With Google
+            </button>
+            <h6 class="my-4 end-para">
+              Already a Blogga?
+              <a href="{% url 'login' %}" class="login-link">Log in</a>
+            </h6>
           </form>
-          <div class="hr-or">
-            <hr size="5" class="hr" />
-            <h3 class="para-hr">OR</h3>
-            <hr class="hr" />
-          </div>
-
-          <button type="button" class="continue-button my-3">
-            <img src="{% static 'img/google.png' %}" alt="" class="google" />
-            Continue With Google
-          </button>
-          <h6 class="my-4 end-para">
-            Already a Blogga?
-            <a href="{% url 'login' %}" class="login-link">Log in</a>
-          </h6>
         </div>
       </div>
     </main>

@@ -11,7 +11,7 @@ class SignUpView(CreateView):
     template_name = 'accounts/user_create_form.html'
     success_url = reverse_lazy('login')
 
-    def form_valid(self, form ):
+    def form_valid(self, form):
 
-        form.send_email
+        # form.send_email
         return super().form_valid(form)
