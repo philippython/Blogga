@@ -1,14 +1,15 @@
 from django.core  import validators
 from django.core.mail import send_mail
+from .models import BlogUser
 from django import forms
 
 
-class UserForm(forms.Form):
-    first_name = forms.CharField(required=True)
-    last_name = forms.CharField(required=True)
-    username = forms.CharField(required=True)
+class UserForm(forms.ModelForm):
     email = forms.EmailField(max_length=100, validators=[validators.validate_email])
-    password = forms.PasswordInput()
+    password = forms.CharField(widget=forms.PasswordInput())
+    class Meta:
+        model  = BlogUser
+        fields = ['first_name', 'last_name', 'username']
 
     def send_email(self):
         first_name = self.cleaned_data['first_name']
