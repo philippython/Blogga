@@ -1,8 +1,6 @@
 from django.urls import path
-from .views import SignUpView
-from django.contrib.auth.views import LoginView
+from .views import homepage
 
 urlpatterns = [
-    path('signup', SignUpView.as_view(), name='signup'),
-    path('login', LoginView.as_view(template_name='accounts/registration.html', next_page="{% url 'homepage' %}"), name='login')
+    path('home', homepage, name='home'),
 ]
