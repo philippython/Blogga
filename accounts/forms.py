@@ -9,9 +9,10 @@ class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
     class Meta:
         model  = BlogUser
-        fields = ['first_name', 'last_name', 'username']
+        fields = ['first_name', 'last_name', 'username', 'email', 'password']
 
     def send_email(self):
         first_name = self.cleaned_data['first_name']
         email = self.cleaned_data['email']
         send_mail('Welcome to Blogga', "Hello %s Welcome to Blogga" % (first_name), 'odulajaphilip@gmail.com', email)
+        print("mail sent")
