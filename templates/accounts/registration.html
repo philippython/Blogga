@@ -27,7 +27,7 @@
         <div class="right-div-container">
           <h3 class="text-center">Welcome Back :)</h3>
           <form action="{% url 'login' %}" method="post">
-            {{ form.non_field_errors }}
+            {% csrf_token %} {{ form.non_field_errors }}
             <p>{{ form.username.label }}</p>
             {{ form.username }}
             <br />
