@@ -4,11 +4,11 @@ from django import forms
 
 
 class UserForm(forms.Form):
-    first_name = forms.CharField(max_length=50 , blank=False)
-    last_name = forms.CharField(max_length=50, blank=False)
-    username = forms.CharField(max_length=30, unique=True)
-    email = forms.EmailField(max_length=100, unique=True, validators=[validators.validate_email])
-    password = forms.PasswordInput(max_length=50)
+    first_name = forms.CharField(required=True)
+    last_name = forms.CharField(required=True)
+    username = forms.CharField(required=True)
+    email = forms.EmailField(max_length=100, validators=[validators.validate_email])
+    password = forms.PasswordInput()
 
     def send_email(self):
         first_name = self.cleaned_data['first_name']
