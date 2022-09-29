@@ -1,4 +1,4 @@
-{% load static %}
+{% load static %} {% load widget_tweaks %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -42,53 +42,35 @@
 
         <div>
           <h3 class="text-center mb-5">Welcome to Blogga</h3>
-
           <form action="{% url 'signup' %}" method="post">
-            {% csrf_token %}
+            {% csrf_token %} {{ form.non_field_errors }}
             <div class="input-flex mt-5">
-              {% if form.errors %} {{ form.non_field_errors }} {% endif %}
               <div>
-                <input
-                  type="text"
-                  placeholder="First Name"
-                  class="input"
-                  name="firstname"
-                />
+                <p>{{ form.first_name.label }}</p>
+                {{ form.first_name }}
                 <hr />
               </div>
               <div>
-                <input
-                  type="text"
-                  placeholder="Last Name"
-                  class="input"
-                  name="lastname"
-                />
+                <p>{{ form.last_name.label }}</p>
+                {{ form.last_name }}
                 <hr m-0 />
               </div>
             </div>
-            <input
-              type="email"
-              placeholder="Email Address"
-              class="input"
-              name="email"
-            />
+            <p>{{ form.email.label }}</p>
+            {{ form.email }}
+
             <br />
             <hr />
-            <input
-              type="text"
-              placeholder="Username"
-              class="input"
-              name="username"
-            />
+            <p style="color: red; font-size: small">
+              {{ form.username.errors }}
+            </p>
+            <p>{{ form.username.label }}</p>
+            {{ form.username }}
             <br />
             <hr />
-            <div class="password-eye">
-              <input
-                type="password"
-                placeholder="Password"
-                class="input"
-                name="password"
-              />
+            <div>
+              <p>{{ form.password.label }}</p>
+              {{ form.password }}
               <i class="bi bi-eye"></i>
             </div>
             <hr class="hr-nomargin" />
