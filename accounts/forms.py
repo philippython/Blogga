@@ -10,9 +10,7 @@ class UserForm(forms.Form):
     email = forms.EmailField(max_length=100, unique=True, validators=[validators.validate_email])
     password = forms.PasswordInput(max_length=50)
 
-    def send_mail(self):
+    def send_email(self):
         first_name = self.cleaned_data['first_name']
         email = self.cleaned_data['email']
-        
-
-        send_mail('Welcome to Blogga')
+        send_mail('Welcome to Blogga', "Hello %s Welcome to Blogga" % (first_name), 'odulajaphilip@gmail.com', email)
