@@ -49,6 +49,7 @@
                 {{ form.first_name.errors}}
                 <p>{{ form.first_name.label }}</p>
                 {{ form.first_name }}
+
                 <hr />
               </div>
               <div>
@@ -93,10 +94,12 @@
               <h3 class="para-hr">OR</h3>
               <hr class="hr" />
             </div>
-            <button type="button" class="continue-button my-3">
-              <img src="{% static 'img/google.png' %}" alt="" class="google" />
-              Continue With Google
-            </button>
+            <a href="{% url 'social:begin' 'google-oauth2' %}"
+              ><button type="button" class="continue-button my-3">
+                <img src="{% static 'img/google.png' %}" class="google" />
+                Continue With Google
+              </button></a
+            >
             <h6 class="my-4 end-para">
               Already a Blogga?
               <a href="{% url 'login' %}" class="login-link">Log in</a>

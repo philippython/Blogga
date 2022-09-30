@@ -1,16 +1,18 @@
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
-from django.contrib.auth import login, authenticate
-from django.shortcuts import render, redirect
+# from .models import BlogUser 
+from django.contrib.auth.models import User
 from .forms import UserForm
 
 # Create your views here.
-def SignUpView(request):
-    if request.method == 'POST':
-        form = UserForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('login')
-    else:
-        form = UserForm()
-    return render(request, 'accounts/signup.html', {'form': form})
+class SignUpView(CreateView):
+    model = User
+    form_class = UserForm
+    template_name = 'accounts/signup.html'
+    success_url = reverse_lazy('login')
+
+    def form_valid(self, form):
+        form.instance.set_password(form.cleaned_data['password'])
+        return super(SignUpView, self).form_valid(form)
+
+    

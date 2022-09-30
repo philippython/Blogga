@@ -39,7 +39,6 @@ ALLOWED_HOSTS = []
 # EMAIL_HOST_PASSWORD = 'your password'
 # EMAIL_PORT = '587'
 
-# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -50,7 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'posts',
     'accounts',
-    'widget_tweaks'
+    'social_django'
 ]
 
 MIDDLEWARE = [
@@ -61,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware'
 ]
 
 ROOT_URLCONF = 'blogga.urls'
@@ -76,14 +76,27 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',  
+                'social_django.context_processors.login_redirect'
             ],
         },
     },
 ]
 
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.github.GithubOAuth2', # github <----
+    'social_core.backends.facebook.FacebookOAuth2', # facebook <----
+    'social_core.backends.google.GoogleOAuth2',  # google <----
+    'django.contrib.auth.backends.ModelBackend',
+)
+
 WSGI_APPLICATION = 'blogga.wsgi.application'
 
+AUTH_USER_MODEL = 'auth.User'
 
+#  Google social login
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY= os.environ.get('CLIENT_ID')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('CLIENT_SECRET')
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
