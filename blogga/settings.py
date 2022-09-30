@@ -63,6 +63,7 @@ MIDDLEWARE = [
     'social_django.middleware.SocialAuthExceptionMiddleware'
 ]
 
+
 ROOT_URLCONF = 'blogga.urls'
 
 TEMPLATES = [
@@ -89,10 +90,15 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',  # google <----
     'django.contrib.auth.backends.ModelBackend',
 )
+SOCIAL_AUTH_PIPELINE = (
+        'social_core.pipeline.user.user_details',
+)
 
 WSGI_APPLICATION = 'blogga.wsgi.application'
 
 AUTH_USER_MODEL = 'auth.User'
+
+LOGIN_REDIRECT_URL= 'accounts/homepage'
 
 #  Google social login
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY= os.environ.get('CLIENT_ID')

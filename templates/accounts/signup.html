@@ -104,6 +104,11 @@
               Already a Blogga?
               <a href="{% url 'login' %}" class="login-link">Log in</a>
             </h6>
+            <input
+              type="hidden"
+              name="next"
+              value="{% url 'account_profile' %}"
+            />
           </form>
         </div>
       </div>

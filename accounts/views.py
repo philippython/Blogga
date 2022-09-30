@@ -17,3 +17,5 @@ class SignUpView(CreateView):
 
 class ProfileView(DetailView):
     model = User
+    queryset = User.objects.get(pk=3)
+    template_name = 'accounts/index.html'
