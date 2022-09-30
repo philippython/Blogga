@@ -45,14 +45,20 @@
             <input type="checkbox" name="" id="" />
             <small>Remember Me</small>
             <br />
-            <a href="{% url 'social:begin' 'google-oauth2' %}">Login</a>
             <button type="submit" class="my-3 mt-4 create-button">Login</button>
+            <p class="my-3 text-center">---OR---</p>
+            <a href="{% url 'social:begin' 'google-oauth2' %}"
+              ><button type="button" class="my-3 continue-button">
+                <img
+                  src="{% static 'img/google.png' %}"
+                  alt=""
+                  class="google"
+                />
+                Continue With Google
+              </button></a
+            >
           </form>
-          <p class="my-3 text-center">---OR---</p>
-          <button type="button" class="my-3 continue-button">
-            <img src="{% static 'img/google.png' %}" alt="" class="google" />
-            Continue With Google
-          </button>
+
           <p class="my-4 text-center">
             New to Blogga?
             <a href="{% url 'signup' %}" class="signup-link">Create Account</a>
