@@ -98,8 +98,9 @@ WSGI_APPLICATION = 'blogga.wsgi.application'
 
 AUTH_USER_MODEL = 'auth.User'
 
-LOGIN_REDIRECT_URL= 'accounts/homepage'
+LOGIN_REDIRECT_URL= 'account_profile'
 
+LOGIN_URL = 'accounts/login'
 #  Google social login
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY= os.environ.get('CLIENT_ID')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('CLIENT_SECRET')

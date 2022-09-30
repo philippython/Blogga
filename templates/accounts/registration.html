@@ -60,7 +60,7 @@
             <input
               type="hidden"
               name="next"
-              value="{% url 'account_profile' %}"
+              value="{% url 'account_profile' request.user.id %}"
             />
           </form>
 

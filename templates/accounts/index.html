@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,7 +26,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
     />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="{% static './css/style.css' %}" />
   </head>
   <body>
     <header>
@@ -74,7 +75,7 @@
                   MORE
                   <span class="dropdown_arrow"
                     ><img
-                      src="./img/home_page/dropdown_arrow.png"
+                      src="{% static './img/home_page/dropdown_arrow.png' %}"
                       alt="dropdown" /></span
                 ></a>
               </li>
@@ -98,7 +99,10 @@
       <section class="hero">
         <div class="hero_left">
           <div class="hero_left_img">
-            <img src="./img/home_page/constance_wu.png" alt="Constance wu" />
+            <img
+              src="{% static './img/home_page/constance_wu.png' %}"
+              alt="Constance wu"
+            />
             <p>TOP STORY</p>
           </div>
 
@@ -115,7 +119,10 @@
 
           <div class="hero_author_wrapper">
             <div class="hero_author_details">
-              <img src="./img/home_page/author_hamzy.png" alt="Author Hamzy" />
+              <img
+                src="{% static './img/home_page/author_hamzy.png' %}"
+                alt="Author Hamzy"
+              />
 
               <div class="hero_author_text">
                 <p>By Adedotun</p>
@@ -134,7 +141,10 @@
 
         <div class="hero_right">
           <div class="hero_right_card">
-            <img src="./img/home_page/bad2me.png" alt="Song Art" />
+            <img
+              src="{% static './img/home_page/bad2me.png' %}"
+              alt="Song Art"
+            />
 
             <div class="card_info_wrapper">
               <div class="card_info">
@@ -151,7 +161,10 @@
           </div>
 
           <div class="hero_right_card">
-            <img src="./img/home_page/eggs.png" alt="Picture of eggs" />
+            <img
+              src="{% static './img/home_page/eggs.png' %}"
+              alt="Picture of eggs"
+            />
             <div class="card_info_wrapper">
               <div class="card_info">
                 <p class="category_label technology">TECHNOLOGY</p>
@@ -165,7 +178,10 @@
           </div>
 
           <div class="hero_right_card">
-            <img src="./img/home_page/covid-19.png" alt="Vaccine Image" />
+            <img
+              src="{% static './img/home_page/covid-19.png' %}"
+              alt="Vaccine Image"
+            />
             <div class="card_info_wrapper">
               <div class="card_info">
                 <p class="category_label health">HEALTH</p>
@@ -179,7 +195,10 @@
           </div>
 
           <div class="hero_right_card">
-            <img src="./img/home_page/benin_head.png" alt="Benin Bronze Head" />
+            <img
+              src="{% static './img/home_page/benin_head.png' %}"
+              alt="Benin Bronze Head"
+            />
             <div class="card_info_wrapper">
               <div class="card_info">
                 <p class="category_label art">ART</p>
@@ -209,7 +228,10 @@
           <div class="swiper-slide">
             <div class="trending_card">
               <div class="trending_card_img">
-                <img src="./img/home_page/koo_koo_fun.png" alt="Song Art" />
+                <img
+                  src="{% static './img/home_page/koo_koo_fun.png' %}"
+                  alt="Song Art"
+                />
                 <p class="category_label entertainment">ENTERTAINMENT</p>
               </div>
 
@@ -230,7 +252,7 @@
             <div class="trending_card">
               <div class="trending_card_img">
                 <img
-                  src="./img/home_page/burna_boy.png"
+                  src="{% static './img/home_page/burna_boy.png' %}"
                   alt="Image of Burna Boy"
                 />
                 <p class="category_label entertainment">ENTERTAINMENT</p>
@@ -250,7 +272,7 @@
             <div class="trending_card">
               <div class="trending_card_img">
                 <img
-                  src="./img/home_page/Remmy-img.jpeg"
+                  src="{% static './img/home_page/Remmy-img.jpeg' %}"
                   alt="Image of Rema & interviewer"
                 />
                 <p class="category_label entertainment">ENTERTAINMENT</p>
@@ -271,7 +293,7 @@
             <div class="trending_card">
               <div class="trending_card_img">
                 <img
-                  src="./img/home_page/burna_boy.png"
+                  src="{% static './img/home_page/burna_boy.png' %}"
                   alt="Image of Burna Boy"
                 />
                 <p class="category_label entertainment">ENTERTAINMENT</p>
@@ -292,7 +314,7 @@
             <div class="trending_card">
               <div class="trending_card_img">
                 <img
-                  src="./img/home_page/Remmy-img.jpeg"
+                  src="{% static './img/home_page/Remmy-img.jpeg' %}"
                   alt="Image of Rema & interviewer"
                 />
                 <p class="category_label entertainment">ENTERTAINMENT</p>
@@ -329,7 +351,10 @@
 
           <div class="writers_content">
             <div class="writers_cards">
-              <img src="./img/home_page/author_hamzy.png" alt="Author Hamzy" />
+              <img
+                src="{% static './img/home_page/author_hamzy.png' %}"
+                alt="Author Hamzy"
+              />
 
               <div class="writers_cards_info">
                 <p>HAMZAH OPEMIPO</p>
@@ -343,7 +368,10 @@
             </div>
 
             <div class="writers_cards">
-              <img src="./img/home_page/author_dotun.png" alt="author_dotun" />
+              <img
+                src="{% static './img/home_page/author_dotun.png' %}"
+                alt="author_dotun"
+              />
 
               <div class="writers_cards_info">
                 <p>ADEDOTUN SOLARIN</p>
@@ -358,7 +386,7 @@
 
             <div class="writers_cards">
               <img
-                src="./img/home_page/author_nifemi.png"
+                src="{% static './img/home_page/author_nifemi.png' %}"
                 alt="author_nifemi"
               />
 
@@ -374,7 +402,10 @@
             </div>
 
             <div class="writers_cards">
-              <img src="./img/home_page/author_rachy.png" alt="Author rachy" />
+              <img
+                src="{% static './img/home_page/author_rachy.png' %}"
+                alt="Author rachy"
+              />
 
               <div class="writers_cards_info">
                 <p>CHIKA RACHEAL EZEH</p>
