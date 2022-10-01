@@ -104,6 +104,7 @@ LOGIN_URL = 'accounts/login'
 #  Google social login
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY= os.environ.get('CLIENT_ID')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('CLIENT_SECRET')
+GOOGLE_OAUTH2_EXTRA_DATA = [ ('id', 'id') ]
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 

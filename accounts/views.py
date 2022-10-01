@@ -1,4 +1,5 @@
 from django.urls import reverse_lazy
+from django.shortcuts import redirect, render
 from django.views.generic.edit import CreateView 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import DetailView
@@ -17,6 +18,7 @@ class SignUpView(CreateView):
         form.instance.set_password(form.cleaned_data['password'])
         return super(SignUpView, self).form_valid(form)
 
+
 class ProfileView(LoginRequiredMixin, DetailView):
 
     template_name = 'accounts/index.html'
@@ -26,3 +28,6 @@ class ProfileView(LoginRequiredMixin, DetailView):
         user = get_object_or_404(User, pk=self.request.user.id)
         return user
     
+def verify_email(request):
+
+    return render(request, 'accounts'))
