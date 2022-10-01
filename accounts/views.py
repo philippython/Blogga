@@ -30,4 +30,4 @@ class ProfileView(LoginRequiredMixin, DetailView):
     
 def verify_email(request):
 
-    return render(request, 'accounts'))
+    return render(request, 'accounts')
