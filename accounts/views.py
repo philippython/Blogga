@@ -1,6 +1,6 @@
 from django.urls import reverse_lazy
 from django.shortcuts import redirect, render
-from django.views.generic.edit import CreateView 
+from django.views.generic.edit import CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import DetailView
 from django.contrib.auth.models import User
@@ -30,4 +30,4 @@ class ProfileView(LoginRequiredMixin, DetailView):
     
 def verify_email(request):
 
-    return render(request, 'accounts')
+    return render(request, 'accounts/verification.html')

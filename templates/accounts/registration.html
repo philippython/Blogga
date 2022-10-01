@@ -57,11 +57,7 @@
                 Continue With Google
               </button></a
             >
-            <input
-              type="hidden"
-              name="next"
-              value="{% url 'account_profile' request.user.id %}"
-            />
+            <input type="hidden" name="next" value="{% url 'verify_email'%}" />
           </form>
 
           <p class="my-4 text-center">

@@ -98,7 +98,7 @@ WSGI_APPLICATION = 'blogga.wsgi.application'
 
 AUTH_USER_MODEL = 'auth.User'
 
-LOGIN_REDIRECT_URL= 'account_profile'
+LOGIN_REDIRECT_URL= 'verify_email'
 
 LOGIN_URL = 'accounts/login'
 #  Google social login

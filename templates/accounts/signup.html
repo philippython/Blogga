@@ -104,11 +104,7 @@
               Already a Blogga?
               <a href="{% url 'login' %}" class="login-link">Log in</a>
             </h6>
-            <input
-              type="hidden"
-              name="next"
-              value="{% url 'account_profile' request.user.id %}"
-            />
+            <input type="hidden" name="next" value="{% url 'verify_email'%}" />
           </form>
         </div>
       </div>
