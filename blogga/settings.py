@@ -32,12 +32,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 #  send mail information
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_USE_TLS = True
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_HOST_USER = "your gmail address"
-# EMAIL_HOST_PASSWORD = 'your password'
-# EMAIL_PORT = '587'
+
 
 
 INSTALLED_APPS = [
@@ -105,6 +100,20 @@ LOGIN_URL = 'accounts/login'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY= os.environ.get('CLIENT_ID')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('CLIENT_SECRET')
 GOOGLE_OAUTH2_EXTRA_DATA = [ ('id', 'id') ]
+SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
+        'https://www.googleapis.com/auth/userinfo.email',
+        'https://www.googleapis.com/auth/userinfo.profile',
+
+]
+
+# email handeler
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = os.environ.get('EMAIL_ID')
+EMAIL_HOST_PASSWORD = 
+
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
