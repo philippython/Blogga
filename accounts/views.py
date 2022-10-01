@@ -1,4 +1,6 @@
 from django.urls import reverse_lazy
+from django.conf import settings
+from django.core.mail import EmailMultiAlternatives
 from django.shortcuts import redirect, render
 from django.views.generic.edit import CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -15,7 +17,17 @@ class SignUpView(CreateView):
     success_url = reverse_lazy('login')
 
     def form_valid(self, form):
+        
+        subject, from_email, to = 'Welcome to Blogga', settings.EMAIL_HOST_USER , form.cleaned_data['email']
+        text_content = 'hello %s , welcome to Blogga' % (form.cleaned_data['first_name'])
+        html_content = 'accounts/verification.html'
+        msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+        msg.attach_alternative(html_content, "text/html")
+        msg.send()
+
         form.instance.set_password(form.cleaned_data['password'])
+        form.instance.is_active = False
+        form.instance.save()
         return super(SignUpView, self).form_valid(form)
 
 
