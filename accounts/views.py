@@ -1,9 +1,7 @@
 from django.urls import reverse_lazy
 from django.conf import settings
-from django.core.mail import EmailMessage
+from django.core.mail import EmailMultiAlternatives
 from django.shortcuts import redirect, render
-from django.template.loader import get_template
-from django.template import Context
 from django.views.generic.edit import CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import DetailView
@@ -21,12 +19,11 @@ class SignUpView(CreateView):
     def form_valid(self, form):
         
         subject, from_email, to = 'Welcome to Blogga', settings.EMAIL_HOST_USER , form.cleaned_data['email']
-        template = get_template('accounts/verification.html')
-        context = dict({'user': form.cleaned_data['first_name']})
-        content = template.render(context)
-        msg = EmailMessage(subject, content, from_email, to=[to])
+        text_content = 'This is an important message.'
+        html_content = """<h3 style="text-align: center; color: rgba(34, 68, 62, 1);">Welcome to blogga</h3>"""
+        msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+        msg.attach_alternative(html_content, "text/html")
         msg.send()
-        
 
 
         form.instance.set_password(form.cleaned_data['password'])
