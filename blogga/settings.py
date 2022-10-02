@@ -85,9 +85,7 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.google.GoogleOAuth2',  # google <----
     'django.contrib.auth.backends.ModelBackend',
 )
-SOCIAL_AUTH_PIPELINE = (
-        'social_core.pipeline.user.user_details',
-)
+
 
 WSGI_APPLICATION = 'blogga.wsgi.application'
 
@@ -100,11 +98,7 @@ LOGIN_URL = 'accounts/login'
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY= os.environ.get('CLIENT_ID')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('CLIENT_SECRET')
 GOOGLE_OAUTH2_EXTRA_DATA = [ ('id', 'id') ]
-SOCIAL_AUTH_GOOGLE_OAUTH2_SCOPE = [
-        'https://www.googleapis.com/auth/userinfo.email',
-        'https://www.googleapis.com/auth/userinfo.profile',
 
-]
 
 # email handeler
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

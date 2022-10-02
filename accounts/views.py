@@ -43,7 +43,6 @@ def verify_email(request):
 
 
 def confirm_email(request, username):
-    
     if request.method == 'GET':
         user = get_object_or_404(User, username=username)
         user.is_active = True
