@@ -7,5 +7,5 @@ urlpatterns = [
     path('login', LoginView.as_view(template_name='accounts/registration.html', next_page="account_profile"), name='login'),
     path('profile/<int:pk>', ProfileView.as_view(), name='account_profile'),
     path('verify-email', verify_email, name='verify_email'),
-    path('confirm-email/<slug:username>', confirm_email, name='confirm_email')
+    path('confirm-email/<str:username>', confirm_email, name='confirm_email')
 ]

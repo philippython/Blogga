@@ -20,7 +20,7 @@ class SignUpView(CreateView):
     def form_valid(self, form):
         
         html_content = 'accounts/verify.html'
-        context_data = {'name' : form.cleaned_data['first_name'], 'username' : form.cleaned_data.get('username')}
+        context_data = {'name' : form.cleaned_data['first_name'], 'username' : form.cleaned_data['username']}
         email_html_template =get_template(html_content).render(context_data)
         msg = EmailMessage('Welcome to Blogga', email_html_template, settings.EMAIL_HOST_USER, [form.cleaned_data['email']])
         msg.content_subtype = 'html'
@@ -42,10 +42,10 @@ def verify_email(request):
     return render(request, 'accounts/verification.html')
 
 
-def confirm_email(request):
+def confirm_email(request, username):
     
     if request.method == 'GET':
-        user = get_object_or_404(User, username=request.username)
+        user = get_object_or_404(User, username=username)
         user.is_active = True
         user.save()
         return redirect('login')
