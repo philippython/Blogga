@@ -1,12 +1,13 @@
 from django.urls import reverse_lazy
 from django.conf import settings
-from django.core.mail import EmailMultiAlternatives
-from django.shortcuts import redirect, render
+from django.core.mail import EmailMessage
+from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import DetailView
 from django.contrib.auth.models import User
 from django.shortcuts import get_object_or_404
+from django.template.loader import get_template
 from .forms import UserForm
 
 # Create your views here.
@@ -18,29 +19,33 @@ class SignUpView(CreateView):
 
     def form_valid(self, form):
         
-        subject, from_email, to = 'Welcome to Blogga', settings.EMAIL_HOST_USER , form.cleaned_data['email']
-        text_content = 'This is an important message.'
-        html_content = """<h3 style="text-align: center; color: rgba(34, 68, 62, 1);">Welcome to blogga</h3>"""
-        msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
-        msg.attach_alternative(html_content, "text/html")
-        msg.send()
-
+        html_content = 'accounts/verify.html'
+        context_data = {'name' : form.cleaned_data['first_name'], 'id' : form.cleaned_data.get('id')}
+        email_html_template =get_template(html_content).render(context_data)
+        msg = EmailMessage('Welcome to Blogga', email_html_template, settings.EMAIL_HOST_USER, [form.cleaned_data['email']])
+        msg.content_subtype = 'html'
+        msg.send(fail_silently=False)
 
         form.instance.set_password(form.cleaned_data['password'])
         form.instance.is_active = False
         form.instance.save()
         return super(SignUpView, self).form_valid(form)
 
-
 class ProfileView(LoginRequiredMixin, DetailView):
 
     template_name = 'accounts/index.html'
-
-
     def get_object(self):
         user = get_object_or_404(User, pk=self.request.user.id)
         return user
     
 def verify_email(request):
-
     return render(request, 'accounts/verification.html')
+
+
+def confirm_email(request):
+    
+    if request.method == 'GET':
+        user = get_object_or_404(User, pk=request.id)
+        user.is_active = True
+        user.save()
+        return redirect('login')
